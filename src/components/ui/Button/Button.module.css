@@ -1,0 +1,60 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Sizes */
+.sm  { padding: 8px 18px;  font-size: 12px; }
+.md  { padding: 12px 28px; font-size: 14px; }
+.lg  { padding: 16px 40px; font-size: 15px; }
+
+/* Variants */
+.primary {
+  background: var(--brand-white);
+  color: var(--brand-deep);
+  border: 1.5px solid var(--brand-white);
+}
+.primary:hover {
+  background: transparent;
+  color: var(--brand-white);
+}
+
+.outline {
+  background: transparent;
+  color: var(--brand-white);
+  border: 1.5px solid rgba(255,255,255,0.4);
+}
+.outline:hover {
+  border-color: var(--brand-white);
+  background: rgba(255,255,255,0.06);
+}
+
+.accent {
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  border: 1.5px solid var(--brand-accent);
+}
+.accent:hover {
+  background: var(--brand-accent-lt);
+  border-color: var(--brand-accent-lt);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--brand-gray);
+  border: 1.5px solid transparent;
+}
+.ghost:hover { color: var(--brand-white); }
+
+/* States */
+.fullWidth { width: 100%; }
+.disabled  { opacity: 0.4; cursor: not-allowed; pointer-events: none; }

@@ -1,0 +1,164 @@
+.page {
+  background: var(--brand-bg);
+  min-height: 100vh;
+  padding: 160px 48px 100px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+}
+
+
+
+
+.reviewBtnPremium {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%); /* Dental blue gradient */
+  color: #fff;
+  border: none;
+  border-radius: 999px; /* pill shape */
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.reviewBtnPremium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(21, 101, 192, 0.35);
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+}
+
+.reviewBtnPremium:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(21, 101, 192, 0.25);
+}
+
+.starIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.rating {
+  margin-left: 4px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+
+
+
+
+
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--brand-white);
+  margin-bottom: 20px;
+}
+
+.body {
+  font-size: 16px;
+  color: var(--brand-gray);
+  line-height: 1.8;
+  margin-bottom: 56px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.contactBox:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.icon {
+  font-size: 32px;
+}
+
+.contactTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--brand-white);
+  margin-bottom: 6px;
+}
+
+.contactBox a {
+  color: var(--brand-accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  transition: border-color var(--transition-base);
+}
+
+.contactBox a:hover {
+  border-color: var(--brand-accent);
+}
+
+.contactSub {
+  font-size: 12px;
+  color: var(--brand-gray);
+  margin-top: 4px;
+}
+
+.openFormBtn {
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  border: none;
+  padding: 16px 40px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.openFormBtn:hover {
+  background: var(--brand-accent-lt);
+}
+
+@media (max-width: 768px) {
+  .page     { padding: 120px 24px 80px; }
+  .contacts { grid-template-columns: 1fr; }
+}

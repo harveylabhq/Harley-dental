@@ -1,0 +1,218 @@
+/* ── NAVBAR SHELL ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  transition: background var(--transition-slow),
+              padding    var(--transition-slow),
+              box-shadow var(--transition-slow);
+}
+
+.scrolled {
+  background: rgba(6, 14, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 48px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* ── LOGO ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoSquare {
+  width: 32px;
+  height: 32px;
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--brand-white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.logoText strong {
+  font-weight: 700;
+  color: var(--brand-accent);
+}
+
+/* ── DESKTOP NAV LINKS ── */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--brand-white);
+  background: rgba(255,255,255,0.06);
+}
+
+.linkActive {
+  color: var(--brand-white);
+}
+
+.linkDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.link:hover .linkDot,
+.linkActive .linkDot {
+  opacity: 1;
+}
+
+/* ── DESKTOP CTA ── */
+.cta {
+  flex-shrink: 0;
+}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--brand-white);
+  border-radius: 2px;
+  transition: transform var(--transition-base),
+              opacity   var(--transition-base);
+  transform-origin: center;
+}
+
+.barTop    { transform: translateY(6.5px) rotate(45deg); }
+.barHidden { opacity: 0; transform: scaleX(0); }
+.barBot    { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background: rgba(6, 14, 26, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 100px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.mobileLink {
+  display: block;
+  padding: 16px 0;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color var(--transition-fast);
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+  color: var(--brand-white);
+}
+
+.mobileCta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileContact {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+}
+
+.mobileContact a {
+  color: var(--brand-accent);
+  text-decoration: none;
+}
+
+/* ── BACKDROP ── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-nav) - 2);
+  background: rgba(0,0,0,0.6);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav     { padding: 20px 24px; }
+  .scrolled { padding: 14px 24px; }
+  .links   { display: none; }
+  .cta     { display: none; }
+  .hamburger { display: flex; }
+}

@@ -1,0 +1,375 @@
+/* ── SHELL ── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0 48px 0;
+}
+
+/* ── BACKGROUND ── */
+/* ── BACKGROUND GRADIENT ── */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    135deg,
+    #0a1628 0%,
+    #1a3a6b 25%,
+    #1e4080 50%,
+    #0f2452 75%,
+    #060e1a 100%
+  );
+}
+
+.bgImg {
+  display: none; /* hide the imported image */
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: none; /* remove overlay */
+}
+
+/* dark gradient left so text is readable, lighter on right to show implant */
+
+
+/* all children above bg */
+.hero > *:not(.bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SPACER (navbar height) ── */
+.spacer {
+  height: 88px;
+  flex-shrink: 0;
+}
+
+/* ── TOP ROW ── */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 24px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 260px;
+}
+
+.taglineRight {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: right;
+  max-width: 240px;
+}
+
+/* ── HEADLINE ── */
+.headlineWrap {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 12px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--brand-white);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 55%;
+}
+
+.headlineLine {
+  display: block;
+}
+
+.headlineAccent {
+  display: block;
+  color: var(--brand-white);
+}
+
+.headlineAccent em {
+  font-style: normal;
+  color: var(--brand-accent);
+}
+
+/* ── FLOATING CTA ── */
+.floatingCta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* ── BOTTOM BAR ── */
+.bottomBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px 0 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 24px;
+}
+
+.bottomLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bottomRight {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.metaValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  font-variant-numeric: tabular-nums;
+}
+
+.metaDivider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── DOCTOR CARDS ── */
+.doctorCards {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  position: relative;
+}
+
+.nextBtn {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.nextBtn:hover {
+  color: var(--brand-white);
+}
+
+.doctorCard {
+  width: 140px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.doctorCardActive {
+  position: relative;
+  opacity: 1;
+}
+
+.doctorCardPeek {
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+}
+
+.doctorAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doctorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.doctorName {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctorRole {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+  display: block;
+}
+
+.scrollText {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+
+
+
+
+.implantSvg {
+  position: absolute;
+  right: 15%;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 620px;
+  animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+  filter: drop-shadow(0 30px 60px rgba(201,169,110,0.2)) drop-shadow(0 0 30px rgba(201,169,110,0.1));
+  object-fit: contain;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(-50%);
+  }
+  50% { 
+    transform: translateY(-65%);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    filter: drop-shadow(0 30px 60px rgba(201,169,110,0.2)) drop-shadow(0 0 30px rgba(201,169,110,0.1));
+  }
+  50% { 
+    filter: drop-shadow(0 30px 60px rgba(201,169,110,0.3)) drop-shadow(0 0 50px rgba(201,169,110,0.15));
+  }
+}
+
+@media (max-width: 768px) {
+  .implantSvg { 
+    width: 420px; 
+    height: 510px; 
+    right: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .implantSvg { 
+    width: 280px; 
+    height: 360px; 
+    right: -5%;
+    opacity: 0.7;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero          { padding: 0 24px; }
+  .topRow        { flex-direction: column; gap: 16px; }
+  .taglineRight  { text-align: left; }
+  .headline      { font-size: clamp(44px, 12vw, 72px); max-width: 100%; }
+  .bottomBar     { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .bottomRight   { width: 100%; justify-content: space-between; }
+  .floatingCta   { flex-direction: column; align-items: flex-start; }
+  .scrollIndicator { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero         { padding: 0 20px; }
+  .doctorCards  { display: none; }
+  .headline     { font-size: clamp(40px, 14vw, 60px); }
+}
+
+
+
+

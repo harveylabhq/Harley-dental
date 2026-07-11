@@ -1,0 +1,290 @@
+/* ── SECTION ── */
+.section {
+  background: var(--brand-deep);
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+.cardImage {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  background: var(--brand-blue);
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.05);
+}
+/* subtle grid texture */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--brand-white);
+  letter-spacing: -0.02em;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--brand-accent);
+}
+
+.headerBody {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--brand-gray);
+  max-width: 380px;
+  text-align: right;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* ── CARD ── */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 40px 32px 32px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform var(--transition-base);
+
+  /* Glass blur */
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+  /* Soft glow + depth */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* Optional: subtle gradient overlay like in the image */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 70%, rgba(255, 140, 60, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+
+.card:hover {
+   
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.12) 100%);
+}
+
+.card:hover .glowBorder {
+  opacity: 1;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+  color: var(--brand-accent);
+}
+
+.card:hover .iconWrap {
+  border-color: var(--brand-accent);
+  background: rgba(201, 169, 110, 0.1);
+}
+
+/* background number */
+.cardNum {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* icon */
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 20px;
+  color: var(--brand-accent);
+}
+
+/* text */
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--brand-white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.cardBody {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--brand-gray);
+  flex: 1;
+  margin-bottom: 28px;
+}
+
+/* footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.price {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--brand-accent);
+  letter-spacing: 0.02em;
+}
+
+.arrow {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: transform var(--transition-base),
+              color    var(--transition-base);
+}
+
+/* glow border on hover */
+.glowBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  box-shadow: inset 0 0 0 1px var(--brand-accent);
+}
+
+/* ── BOTTOM CTA ── */
+.bottomCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: color var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.ctaBtn:hover {
+  color: var(--brand-white);
+  border-color: var(--brand-accent);
+}
+
+.ctaArrow {
+  transition: transform var(--transition-base);
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(6px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .container  { padding: 0 24px; }
+  .header     { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .headerBody { text-align: left; max-width: 100%; }
+  .grid       { grid-template-columns: 1fr; }
+}

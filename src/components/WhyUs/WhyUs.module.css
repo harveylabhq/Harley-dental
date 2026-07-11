@@ -1,0 +1,239 @@
+/* ── SECTION ── */
+.section {
+  background: var(--brand-bg);
+  position: relative;
+}
+
+/* ── STATS BAR ── */
+.statsBar {
+  background: var(--brand-accent);
+  padding: 0 48px;
+}
+
+.statsInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.stat {
+  padding: 36px 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--brand-deep);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(6, 14, 26, 0.6);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── MAIN CONTAINER ── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-3xl) 48px;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── LEFT ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--brand-white);
+  letter-spacing: -0.02em;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--brand-accent);
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--brand-gray);
+}
+
+/* pull quote */
+.pullQuote {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  margin-top: 8px;
+}
+
+.quoteBar {
+  width: 3px;
+  background: var(--brand-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.quoteText {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.quoteAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quoteAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quoteName {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--brand-white);
+}
+
+.quoteRole {
+  display: block;
+  font-size: 11px;
+  color: var(--brand-gray);
+  margin-top: 2px;
+}
+
+/* ── RIGHT — WHY POINTS ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.point {
+  display: flex;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: flex-start;
+}
+
+.point:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pointIcon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color var(--transition-base),
+              background   var(--transition-base);
+}
+
+.point:hover .pointIcon {
+  border-color: var(--brand-accent);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+.pointContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pointTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brand-white);
+  letter-spacing: -0.01em;
+}
+
+.pointBody {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--brand-gray);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .grid { gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  .statsBar    { padding: 0 24px; }
+  .statsInner  { grid-template-columns: repeat(2, 1fr); }
+  .stat        { padding: 24px 16px; }
+  .stat:nth-child(2) { border-right: none; }
+  .container   { padding: var(--space-2xl) 24px; }
+  .grid        { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 480px) {
+  .statsInner { grid-template-columns: repeat(2, 1fr); }
+}

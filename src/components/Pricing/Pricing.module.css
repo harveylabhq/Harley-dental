@@ -1,0 +1,240 @@
+/* ── SECTION ── */
+.section {
+  background: var(--brand-deep);
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--brand-white);
+  letter-spacing: -0.02em;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--brand-accent);
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--brand-gray);
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+/* ── CARD ── */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* featured card */
+.cardFeatured {
+  border: 2px solid var(--brand-accent);
+  background: rgba(201, 169, 110, 0.05);
+  transform: translateY(-12px);
+}
+
+.cardFeatured:hover {
+  border-color: var(--brand-accent-lt);
+}
+
+/* badge */
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--brand-accent);
+  color: var(--brand-deep);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.2);
+}
+
+/* ── CARD HEADER ── */
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.planName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--brand-white);
+  letter-spacing: -0.01em;
+}
+
+.planDesc {
+  font-size: 13px;
+  color: var(--brand-gray);
+  line-height: 1.7;
+}
+
+/* ── PRICE ── */
+.priceWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--brand-white);
+  line-height: 1;
+}
+
+.period {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--brand-gray);
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── FEATURES ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--brand-gray);
+  line-height: 1.65;
+}
+
+.featureCheck {
+  color: var(--brand-accent);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+/* ── GLOW BORDER ── */
+.glowBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px var(--brand-accent), 
+              0 0 20px rgba(201, 169, 110, 0.15);
+}
+
+/* ── BOTTOM INFO ── */
+.bottomInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.infoBox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.infoDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.infoBox p {
+  font-size: 13px;
+  color: var(--brand-gray);
+  line-height: 1.75;
+}
+
+.infoBox strong {
+  color: var(--brand-white);
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .bottomInfo { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .container    { padding: 0 24px; }
+  .grid         { grid-template-columns: 1fr; }
+  .cardFeatured { transform: translateY(0); }
+  .bottomInfo   { grid-template-columns: 1fr; }
+  .header       { margin-bottom: 40px; }
+}
