@@ -48,8 +48,8 @@ export default function Contact() {
         <div className={styles.container}>
           <motion.div
             className={styles.content}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+         initial={{ opacity: 0, scale: 0.9 }}  // ← Remove y: 40
+            animate={{ opacity: 1, scale: 1 }}   
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h1 className={styles.title}>Get In Touch</h1>

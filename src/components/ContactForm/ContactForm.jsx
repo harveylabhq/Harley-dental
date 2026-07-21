@@ -197,8 +197,8 @@ ${formData.message ? `Additional notes: ${formData.message}` : ''}
           {/* ✅ FIX #2: Stop propagation so clicks inside don't close modal */}
           <motion.div
             className={styles.modal}
-            initial={{ opacity: 0, scale: 0.9, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+           initial={{ opacity: 0, scale: 0.9 }}  // ← Remove y: 40
+animate={{ opacity: 1, scale: 1 }}     // ← Remove y: 0
             exit={{ opacity: 0, scale: 0.9, y: 40 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             onClick={(e) => e.stopPropagation()}

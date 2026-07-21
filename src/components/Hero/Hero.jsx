@@ -44,7 +44,7 @@ export default function Hero() {
 
 <div className={styles.bg}>
   <img 
-    src="/src/assets/doctors/image copy.png"
+    src="/image copy.png"
     alt=""
     className={styles.implantSvg}
     aria-hidden="true"
